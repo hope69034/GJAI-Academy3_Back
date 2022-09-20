@@ -12,3 +12,5 @@ fs.readFile("tmp/textfile.txt","utf-8", (err,data)=>{
    console.log("파일에서읽은데이터:",data);
 });
 
+// fs.readFileSync(파일이름) //동기적으로파일읽기-배제
+// fs.readFile(파일이름,콜백함수) //비동기적으로파일읽기
