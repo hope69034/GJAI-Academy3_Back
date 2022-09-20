@@ -1,8 +1,9 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
-const url = "https://www.hanbit.co.kr/academy/books/book_view.html?p_code=B7306695419";
+const url = "https://www.hanbit.co.kr/academy/books/new_book_list.html";
 axios.get(url)
-   
+
+
    //제대로받앗다면
    .then(response=>{
       //console.log(response.data)
