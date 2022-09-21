@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>document</title>
+</head>
+<body style="margin: 50px;">
+   <h1>Send data with POST method</h1>
+   <form action="/create" method="post">
+      <table>
+         <tr>
+               <td>제목</td>
+               <td><input type="text" name="title"></td>
+         </tr>
+         <tr>
+               <td>내용</td>
+               <td><textarea name="content" cols="60" row="5"></textarea></td>
+         </tr>
+         <tr>
+               <td colspan="2" style="text-align: center;"><input type="submit" value="생성"></td>
+         </tr>
+      </table>
+   </form>
+</body>
+</html>
