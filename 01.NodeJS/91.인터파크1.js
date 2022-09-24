@@ -29,3 +29,5 @@ axios.get(url, {responseType: 'arraybuffer'})
     .catch(err => {
         console.log(err);
     });
+
+
