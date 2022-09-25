@@ -13,4 +13,4 @@ function aa() {
    return a;
    let b = 3;   // unreachable
 }
-var a = 5;
+ 

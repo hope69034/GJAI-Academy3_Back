@@ -1,20 +1,7 @@
-console.log(process.env);   // 환경 설정
-console.clear();
-console.log(process.env.COMPUTERNAME);
+const os = require("os");
 
-console.log('process.version:', process.version);   // NodeJS version
-               console.log('process.arch:', process.arch);
-               console.log('process.platform:', process.platform);
-console.log('process.argv:', process.argv);
 
-process.exit(0);        // 정상 종료, 코드값이 -1은 비정상 종료
+console.log(Math.round(os.totalmem()/Math.pow(2,30), 4)+'GB', os.freemem());
+console.log("토탈메모리 "+os.totalmem()/Math.pow(2,30)+" GB"); 
 
-console.log('프로세스');    // unreachable
-
-// Hoisting - 함수와 변수 선언을 프로그램의 제일 위로 올리는 것
-function aa() {
-    let a = 2;
-    return a;
-    let b = 3;      // unreachable
-}
-var a = 5;
+console.log("프리메모리",os.freemem()); // 아래서 기가바이트 단위로 변환
