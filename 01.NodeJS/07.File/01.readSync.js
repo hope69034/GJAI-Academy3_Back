@@ -1,9 +1,9 @@
 //file system 모듈
 
-//동기적(synchronuous)으로 읽기 - 비권장
-
 //파일시스템모듈선언
 const fs = require("fs");
+
+//동기적으로 읽는 방법 - 비권장
 
 //encoding 정보를 주지 않으면 binary로 읽음
 //cmd에서 실행

@@ -18,7 +18,6 @@ const r1 = readline.createInterface({
 
 r1.setPrompt(">");
 
-
 r1.prompt();
 //버프가 받은 글
 //err=>는콜백함수
@@ -34,7 +33,6 @@ r1.on("line",buf=>{        //엔터키를치면 라인이벤트가 발생
    });
    r1.close();
 });
-
 
 //cmd에서  node thisfile.js filename 로
 //실행 후 글 적으면 tmp폴더에 새파일로 생성

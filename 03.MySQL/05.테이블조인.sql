@@ -1,7 +1,4 @@
-
-
-
-create table 새로만들테이블명 (
+/* create table 새로만들테이블명 (
    1번째 필드명 데이터타입 [not null] [KEY] [DEFAULT 디폴트해당값] [Extra],   
    2번째 필드명 데이터타입 [not null] [KEY] [DEFAULT 디폴트해당값] [Extra], 
    ...
@@ -12,16 +9,7 @@ create table dateTable ~~~생성 id랑 dt
 create table dateTable (
    id int auto_increment,
    dt DATEtime CURRENT_TIMESTAMP
-)
-
-
-
-
-
-
-
-
-
+) */
 
 조인
 조인
@@ -238,4 +226,4 @@ SELECT g.name, g.debut, s.title
 	JOIN song AS s
 	ON s.sid=g.hit_song_id
 	WHERE g.debut BETWEEN DATE('2009-01-01') AND DATE('2009-12-31')
-    ORDER BY g.debut;
+   ORDER BY g.debut;
