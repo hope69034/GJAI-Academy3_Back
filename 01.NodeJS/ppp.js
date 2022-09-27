@@ -1,14 +1,11 @@
-process.on('exit', code => {
-   console.log('프로그램 종료'); // 종료시점에 발동
-   console.log('exit code:', code);
-});
-
-process.on('uncaughtException', error => {
-   console.log('예외 발생'); // 에러 발생시 발동
-   console.log('예외 명:', error.name);
-   console.log('예외 내용:', error.message);
-});
-
-// 예외 발생
-error.error.error(); // 에러 유발
-process.exit(-1); // 종료
+$(".view_box").each((index,element)=>{
+   // .class 선택자  //trim 여백지우기
+   // f12로 찾아가기
+   let title = $(element).find(".book_tit").text().trim();
+   let author = $(element).find(".book_writer").text().trim();
+   //예쁘게출력하기위한
+   author = author.split(",").map(x=>x.trim()).join(",");
+       //스플릿하면 배열로
+   console.log(index+1,"====================");
+   console.log(title);
+   console.log(author);

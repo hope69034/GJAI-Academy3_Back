@@ -1,6 +1,8 @@
 const fs = require("fs");
-//순서가 보장 방법 2가지\
+//순서 보장 방법 2가지
+
 // CMD실행
+
 fs.readFile("../07.File/tmp/a.txt","utf-8",(err,bufA)=>{
    console.log(bufA)
    fs.readFile("../07.File/tmp/b.txt", "utf-8", (err,bufB)=>{
@@ -11,4 +13,4 @@ fs.readFile("../07.File/tmp/a.txt","utf-8",(err,bufA)=>{
    });
 });
 
-//이거대신 프라미스 덴덴덴으로 순서를 잘 볼 수 잇게 
+//이거대신 프라미스 덴덴덴으로 순서를 잘 볼 수 잇게  04. 에서

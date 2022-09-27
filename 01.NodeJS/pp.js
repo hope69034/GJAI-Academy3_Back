@@ -1,7 +1,15 @@
-const os = require("os");
+const axios = require("axios");
+const cheerio = require("cheerio");
+const url = "https://www.hanbit.co.kr/academy/books/new_book_list.html";
 
 
-console.log(Math.round(os.totalmem()/Math.pow(2,30), 4)+'GB', os.freemem());
-console.log("토탈메모리 "+os.totalmem()/Math.pow(2,30)+" GB"); 
+axios.get(url)
+    .then(response=>{
+        //console.log(response.data)  // 해당 url의 html 파일이다
+        const soup = cheerio.load(response.data);
+           soup()      //soup==$
+        const $ = cheerio.load(response.data);
+        
 
-console.log("프리메모리",os.freemem()); // 아래서 기가바이트 단위로 변환
+        });
+    
