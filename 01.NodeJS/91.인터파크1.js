@@ -5,15 +5,17 @@ const iconv = require('iconv-lite');    // npm i iconv-lite
 
 url = 'http://book.interpark.com/display/collectlist.do?_method=BestsellerHourNew201605&bestTp=1&dispNo=028';
 
-axios.get(url, {responseType: 'arraybuffer'})
+axios.get(url, {responseType: 'arraybuffer'}) // 유알엘불러오기
+
     .then(res => {
         let contentType = res.headers['content-type'];
         console.log(contentType);               // MS949(EUC-KR)
         let charset = contentType.includes('charset=') ? contentType.split('charset=')[1] : 'utf-8';
         let data = iconv.decode(res.data, charset);
 
-        const $ = cheerio.load(data);
-        $('.rankBestContentList > ol > li').each((index, element) => {
+        const $ = cheerio.load(data); //cheerio 객체선언 (유알엘객체)
+
+        $('.rankBestContentList > ol > li').each((index, element) => {   // .클래스 선택자   ol 이랑 li는 태그 선택자
             let title = $(element).find('.itemName').text().trim();
             let author = $(element).find('.author').text().trim();
             author = author.split(',').map(x => x.trim()).join(', ');
@@ -26,6 +28,7 @@ axios.get(url, {responseType: 'arraybuffer'})
             console.log(`가격:\t\t${price}원`);
         });
     })
+
     .catch(err => {
         console.log(err);
     });
