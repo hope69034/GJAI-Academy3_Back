@@ -1,3 +1,4 @@
+//익스프레스모듈
 const express = require("express"); //express 프레임워크 선언 익스프레스속에 모듈 많음
 const app = express();
 

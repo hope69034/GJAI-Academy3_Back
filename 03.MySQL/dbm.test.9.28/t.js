@@ -84,7 +84,7 @@ dm.insertPlayer(['csh',"2022-09-10",22], () => {
 dm.updatePlayer(["12313332", "2024-09-01", 7 , 15 ], () => {
    dm.getList(rows => {
       console.log()
-      console.log("======문제6 걸그룹수정 (수정됐는지확인용)=========")
+      console.log("======문제6 걸그룹수정 (수정됐는지확인용)=========")  //여기서 서치펑션으로 수정한거 하나만 gid15넣어서 해주면 좋다
       for (let row of rows) {
          console.log(row.gid, row.name, row.debut, row.hit_song_id);
       }  
@@ -99,8 +99,8 @@ dm.updatePlayer(["12313332", "2024-09-01", 7 , 15 ], () => {
    // 문제7 걸그룹삭제
 //완료 작동확인
 //걸그룹 이름 기준 삭제
-dm.deletePlayer("csh", () => {
-   dm.getList(rows => {
+dm.deletePlayer("csh", () => { //csh를 지우고 ()=>{} 콜백함수를 받아서 처리하겟다
+   dm.getList(rows => {   // 즉 deletePlayer 먼저 실행   getList 이건 두번째 실행>
       console.log()
       console.log("======문제7 걸그룹삭제 (삭제됐는지확인용)=========")
       for (let row of rows) {

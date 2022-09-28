@@ -40,7 +40,7 @@ module.exports = {
       ON song.sid = girl_group.hit_song_id;
       `;
       conn.query(sql, (err, rows, fields) => {
-         
+         :
          if (err)
                throw err;
          callback(rows);      
@@ -99,7 +99,7 @@ module.exports = {
 
 
    // 5 걸그룹 추가 걸그룹테이블에추가
-//완료
+//완료               //name, debut, hit_song_id)를 params로 받고
    insertPlayer: function(params, callback) {
       const conn = this.getConnection();
       const sql = `
