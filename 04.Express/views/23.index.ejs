@@ -32,8 +32,8 @@
                   <td><img src="/tigers/<%= row.player %>.jpg" height="48"></td>
                   <td><%= row.backNo %></td>
                   <td><%= row.position %></td>
-                  <td><a href="/update?id=<%= row.id %>"><i class="fa-solid fa-thumbs-up"></i></a>&nbsp;
-                     <a href="/delete?id=<%= row.id %>"><i class="fa-solid fa-user-minus"></i></a></td>
+                  <td><a href="/update/<%= row.id %>"><i class="fa-solid fa-thumbs-up"></i></a>&nbsp;
+                     <a href="/delete/<%= row.id %>"><i class="fa-solid fa-user-minus"></i></a></td>
                </tr>
             <% } %>
          </table>

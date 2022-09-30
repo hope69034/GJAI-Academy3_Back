@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+   <%- include(`${path}/head`) %>   
+   
+   <%- include(`${path}/headbody`) %> 
+   <%- include(`${path}/navBar`) %>   
+
+   <div class="container mt-3">
+      <div class="row">       <!-- Grid 적용 -->
+         <div class="col-2"></div>
+         <div class="col-8">
+            <form action="/update" method="post"> 
+               <input type="hidden" name="id" value="<%- id %>"> <!-- 수정할때들어오는값 -->
+               <table class="table table-borderless">
+                  
+                     <tr>
+                        <td>선수명</td><td><input type="text" name="player" value="<%= player %>"></td>
+                     </tr>
+                     <tr>
+                        <td>백넘버</td><td><input type="text" name="backNo" value="<%= backNo %>"></td>
+                     </tr>
+                     <tr>
+                        <td>포지션</td><td><input type="text" name="position" value="<%= position %>"></td>
+                     </tr>
+                     <tr>
+                        <td colspan="2"><input type="submit" value="수정"></td>
+                     </tr>
+               </table>
+            </form>
+         </div>
+         <div class="col-2"></div>
+      </div>
+   </div>
+</body>
+</html>
+

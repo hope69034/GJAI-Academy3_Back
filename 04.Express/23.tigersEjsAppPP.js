@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.get('/', (req, res) => {
    dm.getList(rows => {
-      ejs.renderFile('views/22.index.ejs', {
+      ejs.renderFile('views/23.index.ejs', {
          rows                                // {rows: rows}
       }, (err, html) => {
          res.send(html);
@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
    });
 });
 app.get('/create', (req, res) => {
-   ejs.renderFile('views/22.create.ejs', (err, html) => {
+   ejs.renderFile('views/23.create.ejs', (err, html) => {
       res.send(html);
    });
 });
@@ -29,13 +29,14 @@ app.post('/create', (req, res) => {
       res.redirect('/');
    });
 });
-app.get('/update', (req, res) => {  // http://localhost:3000/update?id=123
-   const id = parseInt(req.query.id);
+/// :id로하면 모든인풋을저기로받아서 인풋-타입이미지가안뜬다  img로이미지를넣어야한다
+app.get('/update/:id', (req, res) => {  // http://localhost:3000/update?id=123 에서  http://localhost:3000/update/123
+   const id = parseInt(req.params.id);
    dm.getPlayer(id, rows => {
       const player = rows[0].player;
       const backNo = parseInt(rows[0].backNo);
       const position = rows[0].position;
-      ejs.renderFile('views/22.update.ejs', {
+      ejs.renderFile('views/23.update.ejs', {
          id, player, backNo, position    // id:id, player:player, backNo:backNo, position:position
       }, (err, html) => {
          res.send(html);
@@ -51,16 +52,16 @@ app.post('/update', (req, res) => {
       res.redirect('/');
    });
 });
-app.get('/delete', (req, res) => {      // http://localhost/delete?id=123
-   const id = parseInt(req.query.id);
-   ejs.renderFile('views/22.delete.ejs', {
+app.get('/delete/:id', (req, res) => {      // http://localhost/delete?id=123 에서 http://localhost/delete/123로
+   const id = parseInt(req.params.id);
+   ejs.renderFile('views/23.delete.ejs', {
       id
    }, (err, html) => {
       res.send(html);
    });
 });
-app.get('/deleteConfirm', (req, res) => {
-   const id = parseInt(req.query.id);
+app.get('/deleteConfirm/:id', (req, res) => {
+   const id = parseInt(req.params.id);
    dm.deletePlayer(id, () => {
       res.redirect('/');
    });
