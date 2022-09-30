@@ -2,12 +2,12 @@
 
 //cmd 실행
 const express = require("express"); //express 프레임워크 선언 익스프레스속에 모듈 많음
+const ejs=require("ejs");
 const bodyParser = require("body-parser");
-const dm = require("./db/tigers-module");
+const dm = require("./db/tigers-module");  //dm 디비 모듈
 const template = require("./views/tigers-template");
 
 const app = express();
- 
 
 //스택틱 경로에 모든 데이터를 넣어야 한다 경로설정에서 퍼블릭폴더를 나와서 다른페스를 지정할 수 없어서
 
@@ -15,23 +15,41 @@ app.use(express.static(__dirname + "/public"));   // _dirname + "/public"퍼블�
 //기본경로 스택틱을 퍼블릭으로 해줬기 때문에 에이치티엠엘에 그대로/고양이 jpg로 시작해도된다
 //퍼블릭부터출발하는디렉토리
 app.use(bodyParser.urlencoded({extended: false})); // 바디파서를 사용하겟다는 의미  urlencoded마임형식
- 
-
-
-
 
 
 app.get("/",(req,res)=>{
-   dm.getList(rows => {
-      const trs = template.trsGen(rows);
-      const html = template.home(trs);
-      res.send(html);
+   dm.getList(rows => {                     //rows는파라미터 {}파라미터넣기 로우스는로우스
+      ejs.renderFile('views/22.index.ejs', { 
+         rows    //{rows:rows} 가 정석인데 {rows} 도 가능 : 앞뒤같을 때
+      }, (err,html)=>{ 
+         res.send(html);        
+      });
    });
 });
- 
 
 
-app.get("/create", (req,res)=>{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* app.get("/create", (req,res)=>{
    const html = template.createForm();
    res.send(html);
 });
@@ -89,7 +107,7 @@ app.get("/deleteConfirm", (req,res)=>{
    dm.deletePlayer(id, ()=>{      //parseInt(req.query.id)
       res.redirect("/");
    });
-});
+}); */
    
 
 
