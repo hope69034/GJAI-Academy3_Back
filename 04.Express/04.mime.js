@@ -1,43 +1,31 @@
 // mime 은 데이터의 타입을 이야기한다 고 알면 된다 multipurpose internet mail extensions
-
-
 const express = require("express"); //express 프레임워크 선언 익스프레스속에 모듈 많음
-const fs = require("fs");
 const app = express();
 
+const fs = require("fs"); //파일시스템
 
-app.get("/",(req,res)=>{
-
-   res.send(`mime`);
-   
-
+app.get("/",(req,res)=>{ //홈  http://127.0.0.1:3000 
+   res.send(`mime`); //글자mime출력
 });
 
-//response header의 값을 설정
-
-app.get("/image", (req,res)=>{
-   fs.readFile("public/고양이.jpg" ,(err,image)=>{        
+ app.get("/image", (req,res)=>{  //http://127.0.0.1:3000/image/ 주소로연결되는것
+   fs.readFile("public/고양이.jpg" ,(err,image)=>{    //퍼블릭폴더에서고양이를 읽기    
       //    "public/고양이.jpg"  이랑 "./public/고양이.jpg" 은 가능 
       //    "/public/고양이.jpg"  은 에러  
-      res.type("image/jpg");    // image/jpg 이게 마임타입 mime type
+      res.type("image/jpg");      // image/jpg 이게 마임타입 mime type
       res.send(image);
    });
-});
+});  
 
-
-app.get("/audio", (req,res)=>{
+  app.get("/audio", (req,res)=>{
    fs.readFile("public/mp3_sample.mp3" ,(err,audio)=>{
       res.type("audio/mp3");    // image/jpg 이게 마임타입 mime type
       res.send(audio); //에러
    });
 
-});
+});  
 
-
-
-
-
-
+ 
 ///////////////////////////////////////////////////
 
 // 아래 두개는 필수 코드

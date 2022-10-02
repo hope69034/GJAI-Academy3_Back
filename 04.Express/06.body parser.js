@@ -1,41 +1,36 @@
 //cmd 실행
 const express = require("express"); //express 프레임워크 선언 익스프레스속에 모듈 많음
-const fs = require("fs");
-const app = express();
- 
-const bodyParser = require("body-parser");
-const path = require("path");
+const app = express(); // app.
 
-app.use(express.static(__dirname + "/public"));   // _dirname + "/public"퍼블릭디렉토리  경로   여기를  스택틱으로 쓴다
-//기본경로 스택틱을 퍼블릭으로 해줬기 때문에 에이치티엠엘에 그대로/고양이 jpg로 시작해도된다
-//퍼블릭부터출발하는디렉토리
-app.use(bodyParser.urlencoded({extended: false})); // 바디파서를 사용하겟다는 의미  urlencoded마임형식
- 
-app.get("/",(req,res)=>{
+const fs = require("fs"); //파일시스템 파일읽고쓰기등
+const path = require("path");  
+//스택틱설정
+app.use(express.static(__dirname + "/public")); 
+
+const bodyParser = require("body-parser");  //바디파서선언
+app.use(bodyParser.urlencoded({extended: false}));  
+// 바디파서를 사용하겟다는 의미(req.body.uid)  url encoded 마임형식
+
+app.get("/",(req,res)=>{ //홈
    res.send(`<h1>body-parser middleware</h1>`);
 });
 
 app.get("/login", (req,res)=>{
    fs.readFile("views/06.login.html", "utf8" ,(err,html)=>{  //이건캐릭터니까 유티에프팔로읽기       
-      //    "public/고양이.jpg"  이랑 "./public/고양이.jpg" 은 가능 
-      //    "/public/고양이.jpg"  은 에러  
       res.send(html);
    });
 });
 
 app.post("/login", (req,res)=>{
-   const uid =req.body.uid;
+   const uid =req.body.uid; //위에서 겟으로 넘긴 정보를 req.바디로 받는다
    const pwd = req.body.pwd;
-   res.send(`<h1>사용자id: ${uid} 패스워드: ${pwd}</h1>`);  //로긴화면에서 유저가입력하면 그걸띄운다
-}); //   path?uid =        req.query.uid
+   res.send(`<h1>사용자id: ${uid} 패스워드: ${pwd}</h1>`); 
+});  //로긴화면에서 유저가입력하면 그걸띄운다
+   //   path?uid =        req.query.uid
      //  path/:uid         req.params.uid
       // form Date(uid)    req.body.uid 로 읽는다
        //app.use(bodyParser.urlencoded({extended: false})); 으로 가능한 일 이게 미들웨어
  
-
-
-
-
 ///////////////////////////////////////////////////
 
 // 아래 두개는 필수 코드

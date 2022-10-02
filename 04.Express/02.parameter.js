@@ -1,16 +1,15 @@
 const express = require("express"); //express 프레임워크 선언 익스프레스속에 모듈 많음
-
 const app = express();
 
 app.get("/",(req,res)=>{
-   res.send("<h1>Hello World</h1>");
+    res.send("<h1>Hello World</h1>");
 });
 
 // http://localhost:3000/query?id=123
 app.get("/query", (req,res)=>{  //, (req,res) 이자린항상콜백함수가온다
-   const id = req.query.id;  // ?id=123  필드명은 id 값은 123
-   res.send(`<h1>/query: id - ${id}</h1>`);
-}) 
+    const id = req.query.id;  // ?id=123  필드명은 id 값은 123
+    res.send(`<h1>/query: id - ${id}</h1>`);
+}); 
 
 // 쿼리랑 파람은 리퀘스트의 객체
 // 아이디를 받아올 땐 쿼리.아이디가 필수
@@ -18,11 +17,9 @@ app.get("/query", (req,res)=>{  //, (req,res) 이자린항상콜백함수가온�
 
 // http://localhost:3000/params/id/123 로들어가면 >/params: id - ${id} 출력
 app.get("/params/id/:id", (req,res)=>{  //, (req,res) 이자린항상콜백함수가온다
-   const id = req.params.id;  // ?id=123  필드명은 id 값은 123
-   res.send(`<h1>/params: id - ${id}</h1>`);
-}) 
-
-
+    const id = req.params.id;   
+    res.send(`<h1>/params: id - ${id}</h1>`);
+});
 
 
 
