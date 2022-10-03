@@ -1,4 +1,4 @@
-const dm = require('./m');
+const dm = require('./m');  // m.js파일 리콰이어
 
 //10문제 동시 작동 가능 // 확인
 

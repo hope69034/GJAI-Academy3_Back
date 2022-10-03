@@ -5,8 +5,6 @@ const config = require('./mysql.json');
 // db모둘db테스트파일
 module.exports = {
 
-
-
    //1 걸그룹 리스트 조회
    //gid 걸그룹이름 데뷔일 히트곡명
 //완료
